@@ -6,9 +6,14 @@ def SortByInsert(l):
                 temp = l[i-1]
                 l[i-1] = l[i]
                 l[i] = temp
-                j += 0
-                print(l)
+                j = 0
             else:
                 j += 1
     print(l)
 
+# Create a new list by using  list compréhension
+l = [i for i in range(1, 10)]
+# Reversed The new list
+revl = l[::-1]
+
+SortByInsert(revl)
