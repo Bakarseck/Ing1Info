@@ -26,7 +26,7 @@ create table article (id_article varchar(50) primary key, nom_article varchar(50
 create table gerant (id_gerant varchar(50) primary key, experience varchar(50), specialite varchar(50), type_de_contrat varchar(50));
 
 -- Create Table  agent-securite in our Supermarche Information System's
-create table agent_securite(id_agent_sec varchar(50), grade varchar(50), experience varchar(50), heures_de_services  ) ;
+create table agent_securite(id_agent_sec varchar(50) primary key, grade varchar(50), experience varchar(50), heures_de_services  ) ;
 
 -- Create all tables of the our Supermarche System in ipslSupermarche
 create table 
