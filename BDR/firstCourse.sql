@@ -72,10 +72,19 @@ create table commande (id_commande varchar(50) primary key);
 -- Create Table Categories in our Supermarche Information System's
 create table categories (id_categorie varchar(50) primary key);
 
-                                -- Modify the tables by adding a foreign key
+ -- Modify the tables by adding a foreign key
 
 -- Add id_adresse in table personne after id_personn
 alter table personne add id_adresse varchar(50) not null after id_personn ;
 
 -- Make id_adress as foreign key
 alter table personne add constraint fk_adress foreign key(id_adresse) references adresse(id_adresse) ;
+
+-- Modify a name of an attribute
+alter table personne change prenom prenom_personne varchar(50) ;
+
+-- Drop an attrubute in a table
+alter table personne drop prenom_personne ;
+
+-- Rename a table
+alter table personne rename personn ;
