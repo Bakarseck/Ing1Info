@@ -17,7 +17,7 @@ create database ipslSupermarche ;
 mysql -u ipsldirecteur -p
 
 -- Create Table Personne in our Supermarche Information System's
-create table personne (nom varchar(50), prenom varchar(50), mail varchar(50), telephone varchar(50), age smallint(6), id_personn varchar(10) );
+create table personne (nom varchar(50), prenom varchar(50), mail varchar(50), telephone varchar(50), age smallint(6), id_personn varchar(10) primary key );
 
 -- Create Table Article in our Supermarche Information System's
 create table article (id_article varchar(50) primary key, nom_article varchar(50), prix_article smallint(10), date_prod date, date_exp date, details varchar(50) ) ;
@@ -71,3 +71,11 @@ create table commande (id_commande varchar(50) primary key);
 
 -- Create Table Categories in our Supermarche Information System's
 create table categories (id_categorie varchar(50) primary key);
+
+                                -- Modify the tables by adding a foreign key
+
+-- Add id_adresse in table personne after id_personn
+alter table personne add id_adresse varchar(50) not null after id_personn ;
+
+-- Make id_adress as foreign key
+alter table personne add constraint fk_adress foreign key(id_adresse) references adresse(id_adresse) ;
