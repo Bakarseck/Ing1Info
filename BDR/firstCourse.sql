@@ -68,7 +68,6 @@ create table avoirs (id_avoirs varchar(50) primary key, montant decimal(10,2),da
 
 -- Create Table Commande in our Supermarche Information System's
 create table commande (id_commande varchar(50) primary key);
--------------------------------------------------------------------------
 
 -- Create Table Categories in our Supermarche Information System's
 create table categories (id_categorie varchar(50) primary key);
