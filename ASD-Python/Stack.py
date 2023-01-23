@@ -10,11 +10,13 @@ class Stack():
 
     # The method pop that remove the last element
     def Pop(self):
-        return self.l.pop()
+        if len(self.l) != 0:
+            return self.l.pop()
     
     # The method Peek that return the last element
     def Peek(self):
-        return self.l[-1]
+        if len(self.l) != 0:
+            return self.l[-1]
     
     # The method size that return the size of the the stack
     def Size(self):
@@ -25,22 +27,3 @@ class Stack():
         if len(self.l) == 0:
             return True
         return False
-    
-
-        
-        
-    
-
-s = Stack()
-s.Push(2)
-s.Push(3)
-s.Push(4)
-s.Push(7)
-s.Push(6)
-s.Pop()
-s.Pop()
-s.Pop()
-s.Pop()
-s.Pop()
-print(s.Size())
-print(s.isEmpty())
