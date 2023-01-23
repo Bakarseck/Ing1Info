@@ -67,6 +67,7 @@ int main() {
     }
     Congratulations() ;
     Congratulations() ;
+    NextLine();
     printf("Vous avez trouve le nombre en %d coups !!! ", compteur) ;
 
     return 0;
