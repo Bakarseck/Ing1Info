@@ -74,9 +74,10 @@ create table  client (
     id_Client varchar(50) primary key);
 
 -- Create Table Rayonniste  Cas in our Supermarche Information System's
-create table  royonniste (
-    id_royonniste varchar(50) primary key,
-    experience varchar(50));
+create table  rayonniste (
+    id_rayonniste varchar(50) primary key,
+    experience varchar(50), 
+    tel_rayonniste int);
 
 -- Create Table Local  in our Supermarche Information System's
 create table local  (id_local varchar(50) primary key,
@@ -226,3 +227,7 @@ alter table type_client add constraint FK_id_client_of_type_client foreign key(i
 
  --renommer le nom de la table
  alter table nom_de_la_table rename nom_de_table
+
+ALTER TABLE rayonniste
+ADD CONSTRAINT chk_tel_rayonniste
+CHECK(tel_rayonniste like '+221%' ) ;
