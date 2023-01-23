@@ -9,8 +9,8 @@ def convert_base_2(n):
     
     size = s.Size()
 
-    while size >= 0:
-        print(s.Peek())
+    while size > 0:
+        print(s.Peek(), end="")
         s.Pop()
         size -= 1
 
