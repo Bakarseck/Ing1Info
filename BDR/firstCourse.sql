@@ -231,3 +231,64 @@ alter table type_client add constraint FK_id_client_of_type_client foreign key(i
 ALTER TABLE rayonniste
 ADD CONSTRAINT chk_tel_rayonniste
 CHECK(tel_rayonniste like '+221%' ) ;
+
+--pour changer le nom de l'attribut
+ alter table personne change prenom prenom_pers varchar(50);
+
+ --renommer le nom de la table
+ alter table nom_de_la_table rename nom_de_table
+
+
+-----------------------------Ajout des contraintes-------------------------------
+
+-- table article
+alter table article
+modify nom_article varchar(50) not null;
+
+--table  Avoirs
+alter table avoirs 
+add constraint CHK_avoirs_montant_avoirs 
+check(montant >=0 AND montant <499);
+
+--table personne
+alter table person add constraint UQ_personne_nom_prenom_mail
+UNIQUE(nom,prenom,mail);
+
+
+-----------------------------CODE POUR AJOUTER LES CONTRAINTES-------------------------------
+
+--Contraintes de valuation obligatoire
+ALTER TABLE maTable
+ALTER COLUMN maColonne memeType NOT NULL ;
+
+--Contraintes de clé primaire
+ALTER TABLE maTable
+ADD CONSTRAINT PK_maTable
+  PRIMARY KEY (colonnesConstituantLaCléPrimaire)
+
+--Contraintes de clé étrangère
+ALTER TABLE maTable
+ADD CONSTRAINT FK_maTable_colonneDeCleEtrangere
+  FOREIGN KEY(colonneDeCleEtrangere)
+  REFERENCES tableContenantLaClePrimaireAReferencer(colonneDeClePrimaire)
+
+--Contraintes d’unicité
+ALTER TABLE maTable
+ADD CONSTRAINT UQ_maTable_colonnesConstituantLeTupleQuiDoitEtreUnique
+  UNIQUE (colonnesConstituantLeTupleQuiDoitEtreUnique)
+
+--Contraintes de valeur par défaut :
+ALTER TABLE maTable
+ADD CONSTRAINT DF_maTable_maColonne
+  DEFAULT (uneValeur) FOR (maColonne)
+
+--Contraintes de domaine (CHECK)
+ALTER TABLE maTable
+ADD CONSTRAINT CHK_maTable_maColonne
+CHECK(maColonne [formuleDeVerification]);
+
+
+-----------------------------INSERTION DES DONNEES-------------------------------
+
+--Table personne
+insert into personne (id_adresse,nom,prenom_pers,mail,telephone,age) values ('jarvis', 'Stark', 'jarvis@gmail.com', '77 777 77 77', '22');
