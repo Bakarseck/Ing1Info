@@ -11,7 +11,7 @@ def SortByInsert(l):
                 j += 1
     print(l)
 
-# Create a new list by using  list compréhension
+# Create a new list by using  list comprehension
 l = [i for i in range(1, 10)]
 # Reversed The new list
 revl = l[::-1]

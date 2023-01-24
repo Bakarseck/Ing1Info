@@ -2,7 +2,7 @@ from tkinter import *
 import webbrowser
 
 def open_graven_channel():
-    webbrowser.open_new("http://youyube.com/gravenilvec")
+    webbrowser.open_new("http://youtube.com/gravenilvec")
 
 # créer une première fenetre
 window = Tk()
@@ -24,8 +24,8 @@ label_title = Label(
 frame, text="Bienvenue sur l'application", font=("Courrier", 30), bg='#41B77F', fg="white")
 label_title.pack(expand=YES)
 
-#Ajouter un secon texte
-label_subtitle = Label(frame, text="Bienvenue sur l'application", font=("Courrier", 25), bg='#41B77F', fg="white")
+#Ajouter un second texte
+label_subtitle = Label(frame, text="Cliquez sur ce bouton", font=("Courrier", 25), bg='#41B77F', fg="white")
 label_subtitle.pack(expand=YES)
 
 # Ajouter un premier bouton

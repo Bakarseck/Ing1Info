@@ -32,7 +32,6 @@ def MergeSort(l):
             j += 1
             k += 1
 
-        print(l)
 
-l = [x for x in range(10, 1, -1)]
-MergeSort(l)
+# l = [x for x in range(10, 1, -1)]
+# MergeSort(l)
