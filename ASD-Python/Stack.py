@@ -27,3 +27,13 @@ class Stack():
         if len(self.l) == 0:
             return True
         return False
+
+s = Stack()
+
+s.Push(2)
+s.Push(3)
+s.Push(4)
+s.Push(5)
+s.Pop()
+
+print(s.Size())
