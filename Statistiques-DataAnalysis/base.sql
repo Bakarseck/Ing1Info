@@ -1,14 +1,14 @@
--- Connect as the user root
-mysql -u root -p
+-- -- Connect as the user root
+-- mysql -u root -p
 
--- Create a user current 
-grant all privileges on *.* to current@localhost identified by '';
+-- -- Create a user current 
+-- grant all privileges on *.* to current@localhost identified by '';
 
--- Connect the user current
-mysql -u current -p
+-- -- Connect the user current
+-- mysql -u current -p
 
 -- create a database named statistics 
-create database statistics ;
+create database stats ;
 
 -- use this database
 use statistics ;
@@ -19,11 +19,11 @@ age varchar(50), revenu varchar(50),
 etudiant varchar(50),
 credit varchar(50), achat varchar(50));
 
--- show the tables in my database to verify
-show tables ;
+-- -- show the tables in my database to verify
+-- show tables ;
 
--- describe the table statistics
-desc statistics ;
+-- -- describe the table statistics
+-- desc statistics ;
 
 
 -- insert the data 
@@ -61,8 +61,8 @@ insert into statistics(age, revenu, etudiant, credit, achat) values ("Entre 31 e
 
 
 
--- See all the persons in my database
-select * from statistics ;
+-- -- See all the persons in my database
+-- select * from statistics ;
 
--- See all the persons that achat is Oui 
-select * from statistics where achat like "O%" ;
+-- -- See all the persons that achat is Oui 
+-- select * from statistics where achat like "O%" ;
