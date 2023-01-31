@@ -13,7 +13,7 @@
 ---------------------------------------------------------------------------------------
 
 INSERT INTO `adresse` (`id_adresse`, `region`, `ville`, `code_postal`, `residence`) VALUES 
-    (NULL, 'Dakar', 'Pikine', '17000', 'SIPERES 5'), 
+    (NULL, 'Dakar', 'Pikine', '17000', 'SIPERES 5'),
     (NULL, 'Dakar', 'Guediawaye', '10200', 'Cite Sofraco'),
     (NULL, 'Saint-Louis', 'Saint-Louis', '32000', 'UGB'),
     (NULL, 'Diourbel', 'Diourbel', '22300', 'RESIDENCE CHEIKHOUL KHADIM'),
@@ -80,7 +80,7 @@ INSERT INTO `personne` (`id_personne`, `id_adresse`, `nom_pers`, `prenom_pers`, 
 (NULL, '13', 'Sidibe', 'Aicha ', 'Sidibe@gmail.com', '795321545', '31', 'F'), 
 (NULL, '18', 'Thiam', 'Oumoul ', 'Thiam@gmail.com', '754621358', '34', 'F'), 
 (NULL, '12', 'Diouf', 'Bineta ', 'Diouf@gmail.com', '754213698', '32', 'F'),
-(NULL, '11', 'Diatta', 'Salimata ', 'Diatta@gmail.com', '762135468', '25', 'F'), 
+(NULL, '11', 'Diatta', 'Salimata ', 'Diatta@gmail.com', '762135468', '25', 'F'),
 (NULL, '15', 'Diagne', 'Nafissatou ', 'Diagne@gmail.com', '745213598', '22', 'F');
 
 ---------------------------------------------------------------------------------------
@@ -130,13 +130,18 @@ VALUES
 ---------------------------------------------------------------------------------------
 --Table rayonniste
 ---------------------------------------------------------------------------------------
-INSERT INTO `rayonniste` (`id_rayonniste`, `id_personne`, `experience`) 
+INSERT INTO rayonniste (`id_personne`, `experience`) 
 VALUES 
-(NULL, '23', '1 années d\'expérience'),
-(NULL, '20', '3 années d\'expérience'),
-(NULL, '30', '2 années d\'expérience'),
-(NULL, '11', '5 années d\'expérience'),
-(NULL, '33', '0 année d\'expérience');
+('23', '1 années d\'expérience'),
+('20', '3 années d\'expérience'),
+('30', '2 années d\'expérience'),
+('11', '5 années d\'expérience'),
+( 33', '0 année d\'expérience');
+
+INSERT INTO rayonniste (`id_personne`, `experience`) 
+VALUES
+( 44 , '5 années d\'expérience') ;
+
 
 /*
 -------------------------------------------------------------------------------------
@@ -180,3 +185,30 @@ CHECK(maColonne [formuleDeVerification]);
  alter table personne Drop id_adresse;
  ------||||||||||||||||||||||||||||||--------||||||||||||||||||||||||||||||-----------
 */
+
+INSERT INTO `personne` (`id_personne`, `id_adresse`, `nom_pers`, `prenom_pers`, `mail`, `telephone`, `age`, `sexe`)
+ VALUES 
+(NULL, '2', 'Dia', 'Fatou', ' Fatou@gmail.com', '77 556 66 99', '20', 'F') ;
+
+INSERT INTO `adresse` (`id_adresse`, `region`, `ville`, `code_postal`, `residence`) VALUES 
+    (NULL, 'matam', 'Yorofoula', '19000', 'SIPERES 6'),
+
+INSERT INTO `personne` (`id_personne`, `id_adresse`, `nom_pers`, `prenom_pers`, `mail`, `telephone`, `age`, `sexe`)
+ VALUES 
+(NULL, '21', 'Diallo', 'Souleymane', 'souleymane@gmail.com', '776756765', '23', 'M') ;
+
+create table articleCommande(
+  id_commande int ,
+  id_article int,
+  primary key(id_commande, id_article)
+) ;
+
+select concat(Trim(prenom_pers), ' ', nom_pers) as NomComplet, coalesce(, 'Il n''est pas rayonniste') as Rayonniste,
+case 
+  when sexe="F" and age > 18 then "Il peut etre agent"
+  when sexe="M" and age > 20 then "Il peut etre agent"
+  else "Il ne peut être agent"
+end as Traitement
+from personne
+left join rayonniste
+on rayonniste.id_personne = personne.id_personne ;
