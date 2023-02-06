@@ -15,4 +15,4 @@ class Node():
 
     def setNext(self, next_node):
         self.next_node = next_node
-        
+
